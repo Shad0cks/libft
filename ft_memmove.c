@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdeshaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 15:34:37 by pdeshaye          #+#    #+#             */
-/*   Updated: 2021/11/02 18:11:27 by pdeshaye         ###   ########.fr       */
+/*   Updated: 2021/11/05 12:38:52 by pdeshaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,13 @@ void	*ft_memmove( void *destination, const void *source, size_t size)
 	cast_src = (const unsigned char *) source;
 	cast_dest = (unsigned char *) destination;
 	if (!destination && !source)
- 		return (NULL);
+		return (NULL);
 	i = 0;
 	if (cast_src < cast_dest)
 	{
-		while (i < size)
-		{
+		size++;
+		while (i < --size)
 			cast_dest[size - 1] = cast_src[size - 1];
-			size--;
-		}
 	}
 	else
 	{
