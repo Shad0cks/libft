@@ -6,13 +6,13 @@
 /*   By: pdeshaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:12:23 by pdeshaye          #+#    #+#             */
-/*   Updated: 2021/11/03 16:12:23 by pdeshaye         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:16:41 by pdeshaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+static char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
 

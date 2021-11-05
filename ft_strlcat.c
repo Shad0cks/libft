@@ -6,21 +6,11 @@
 /*   By: pdeshaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:35:58 by pdeshaye          #+#    #+#             */
-/*   Updated: 2021/11/05 12:54:21 by pdeshaye         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:20:35 by pdeshaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-unsigned int	ft_strln(const char *str)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {

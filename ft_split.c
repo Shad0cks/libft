@@ -6,13 +6,13 @@
 /*   By: pdeshaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:11:49 by pdeshaye          #+#    #+#             */
-/*   Updated: 2021/11/05 13:57:07 by pdeshaye         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:16:36 by pdeshaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_word(const char *str, char c)
+static int	count_word(const char *str, char c)
 {
 	int		i;
 	int		trigger;
