@@ -1,56 +1,61 @@
+# LIB NAME
+
 NAME	= libft.a
 
-SRCS	= \
-	ft_isalpha.c \
-	ft_isdigit.c \
-	ft_isalnum.c \
-	ft_isascii.c \
-	ft_isprint.c \
-	ft_strlen.c \
-	ft_memset.c \
-	ft_bzero.c \
-	ft_memcpy.c \
-	ft_memmove.c \
-	ft_strlcpy.c \
-	ft_strlcat.c \
-	ft_toupper.c \
-	ft_tolower.c \
-	ft_strchr.c \
-	ft_strrchr.c \
-	ft_strncmp.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_strnstr.c \
-	ft_atoi.c \
-	ft_strdup.c \
-	ft_calloc.c \
-	ft_putchar_fd.c \
-    ft_putstr_fd.c \
-    ft_putendl_fd.c \
-	ft_putnbr_fd.c \
-	ft_itoa.c \
-    ft_substr.c \
-    ft_strjoin.c \
-    ft_strtrim.c \
-    ft_split.c \
-    ft_strmapi.c \
-    ft_striteri.c
+# SOURCES
+
+SRC	= \
+	ft_memset ft_memcpy ft_memmove ft_memchr ft_memcmp ft_bzero \
+	ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint \
+	ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
+	ft_strchr ft_strrchr ft_strncmp ft_strnstr \
+	ft_substr ft_strjoin ft_strtrim ft_split\
+	ft_strlen ft_strlcpy ft_strlcat \
+	ft_strmapi ft_striteri \
+	ft_toupper ft_tolower \
+	ft_strdup ft_calloc \
+	ft_atoi ft_itoa
+
+SRCS	= $(addsuffix .c, $(SRC))
 OBJS	= $(SRCS:.c=.o)
 
+B_SRC	= \
+	ft_lstnew ft_lstadd_front ft_lstadd_back \
+	ft_lstdelone ft_lstclear \
+	ft_lstsize ft_lstlast \
+	ft_lstiter ft_lstmap
+
+B_SRCS	= $(addsuffix .c, $(B_SRC))
+B_OBJS	= $(B_SRCS:.c=.o)
+
+# COMMANDS
+
 CC		= gcc
+RM		= rm -f
+AR		= ar rc
+RN		= ranlib
+
 CFLAGS	= -Wall -Werror -Wextra
 
-$(NAME):
-	$(CC) $(CFLAGS) -c $(SRCS) -I ./includes
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+# RULES
+
+%.o: %.c libft.h
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
+	@$(RN) $(NAME)
+
+bonus: $(NAME) $(B_OBJS)
+	@$(AR) $(NAME) $(OBJS) $(B_OBJS)
+	@$(RN) $(NAME)
 
 all: $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	@$(RM) $(OBJS) $(B_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all

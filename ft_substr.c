@@ -6,11 +6,18 @@
 /*   By: pdeshaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 03:29:57 by pdeshaye          #+#    #+#             */
-/*   Updated: 2021/11/05 12:27:02 by pdeshaye         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:02:39 by pdeshaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static size_t	ft_min(size_t a, size_t b)
+{
+	if (a > b)
+		return (b);
+	return (a);
+}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -22,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	index_result = 0;
 	index = 0;
-	result = (char *)malloc(sizeof(char) * (len + 1));
+	result = malloc(ft_min(len, ft_strlen(s)) + 1);
 	if (result == NULL)
 		return (NULL);
 	while (s[index] != '\0')
